@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ac738e2yti1"]
+
+[ext_resource type="Texture2D" uid="uid://bxart1kwgwvly" path="res://RabbitBoy.png" id="1_dfp7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6scme"]
+size = Vector2(27, 17)
+
+[node name="Rabbit" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.5, -5.5)
+scale = Vector2(1.6875, 1.6875)
+texture = ExtResource("1_dfp7d")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, -0.5)
+shape = SubResource("RectangleShape2D_6scme")

@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuhlnuhx47tl"]
+
+[ext_resource type="Script" path="res://laser.gd" id="1_5dgg0"]
+[ext_resource type="Texture2D" uid="uid://d06hk30shtvuu" path="res://happyface.png" id="2_qokpr"]
+
+[sub_resource type="Animation" id="Animation_1su6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happyface:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_00e2f"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happyface:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0l3j"]
+_data = {
+"RESET": SubResource("Animation_1su6e"),
+"spin": SubResource("Animation_00e2f")
+}
+
+[sub_resource type="Animation" id="Animation_dmwbb"]
+resource_name = "yes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.301961), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4stmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.301961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btgda"]
+_data = {
+"RESET": SubResource("Animation_4stmq"),
+"yes": SubResource("Animation_dmwbb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42sym"]
+radius = 16.0312
+
+[node name="Happyfaceattack" type="Area2D"]
+script = ExtResource("1_5dgg0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -27.0
+offset_top = -4851.0
+offset_right = 29.0
+offset_bottom = 4855.0
+color = Color(1, 0, 0, 0.301961)
+
+[node name="Happyface" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qokpr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s0l3j")
+}
+autoplay = "spin"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_btgda")
+}
+autoplay = "yes"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_42sym")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ctmlcd64lkr7b"]
+
+[node name="FakeSlider" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+skew = -0.596903
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_right = 177.0
+offset_bottom = 564.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite2D"]
+offset_left = -52.0
+offset_right = 125.0
+offset_bottom = 571.0
+color = Color(0.694118, 0, 0, 1)

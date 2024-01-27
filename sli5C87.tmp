@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxmhevt5d0coh"]
+
+[ext_resource type="Texture2D" uid="uid://bcsmn6kwuksaf" path="res://Sprite-0007.png" id="1_34upw"]
+[ext_resource type="Script" path="res://slider_scene.gd" id="1_j2hoo"]
+[ext_resource type="PackedScene" uid="uid://w7nmo75ypcn7" path="res://sliderPlayer.tscn" id="2_ta1hw"]
+
+[sub_resource type="Animation" id="Animation_jkvx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite-0007:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-362, 1114)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x55vw"]
+resource_name = "shake"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite-0007:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-362, 1114), Vector2(-1637, -1207), Vector2(-362, 1114)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(-1, 0), Vector2(-0.857, 1), Vector2(1, 0.833), Vector2(0.8, -2), Vector2(0.6, 3), Vector2(2, 2), Vector2(-1, 1), Vector2(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hd0o2"]
+_data = {
+"RESET": SubResource("Animation_jkvx5"),
+"shake": SubResource("Animation_x55vw")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1mm1b"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 10, 10)
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 10)
+direction = Vector3(0, 50, 0)
+spread = 27.303
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 10.0
+
+[node name="SliderScene" type="Node2D"]
+script = ExtResource("1_j2hoo")
+
+[node name="Sprite-0007" type="Sprite2D" parent="."]
+position = Vector2(-362, 1114)
+scale = Vector2(128.031, 128.031)
+texture = ExtResource("1_34upw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hd0o2")
+}
+autoplay = "shake"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-12, -197)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_1mm1b")
+
+[node name="SliderPlayer" parent="." instance=ExtResource("2_ta1hw")]
+position = Vector2(1, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
