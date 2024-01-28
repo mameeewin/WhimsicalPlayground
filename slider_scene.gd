@@ -3,7 +3,7 @@ extends Node2D
 var happyface = preload("res://happyfaceattack.tscn")
 var big_smile = preload("res://BIGGERSMILE.png")
 var small_smile = preload("res://happyface.png")
-var slider_length = 32
+var slider_length = 30
 
 func _on_timer_timeout():
 	if randi_range(0, 1) == 1:

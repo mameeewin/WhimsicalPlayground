@@ -1,8 +1,49 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwuixsagjr0hu"]
+[gd_scene load_steps=9 format=3 uid="uid://bwuixsagjr0hu"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hi7ea"]
 [ext_resource type="Texture2D" uid="uid://bcsmn6kwuksaf" path="res://Sprite-0007.png" id="1_i4ts2"]
 [ext_resource type="Texture2D" uid="uid://dw0ppbtfu108d" path="res://sliderPlayer.png" id="2_i64du"]
+[ext_resource type="FontFile" uid="uid://dnjsy7evce23" path="res://PixelifySans-VariableFont_wght.ttf" id="3_w2gqc"]
+[ext_resource type="FontFile" uid="uid://cejimc6ommoql" path="res://FjallaOne-Regular.ttf" id="5_4nolo"]
+
+[sub_resource type="Animation" id="Animation_uap1i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SliderPlayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-113, 477)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SliderPlayer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(657, 216)]
+}
 
 [sub_resource type="Animation" id="Animation_i5rnx"]
 resource_name = "now"
@@ -45,45 +86,6 @@ tracks/2/keys = {
 "values": [Vector2(657, 216), Vector2(650, 295), Vector2(657, 216), Vector2(650, 295), Vector2(657, 216), Vector2(650, 295)]
 }
 
-[sub_resource type="Animation" id="Animation_uap1i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SliderPlayer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-113, 477)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SliderPlayer:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(657, 216)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6f4cu"]
 _data = {
 "RESET": SubResource("Animation_uap1i"),
@@ -106,12 +108,24 @@ texture = ExtResource("1_i4ts2")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 114.0
-offset_top = 88.0
-offset_right = 1067.0
-offset_bottom = 191.0
+offset_left = 11.0
+offset_top = 81.0
+offset_right = 1141.0
+offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("3_w2gqc")
+theme_override_font_sizes/font_size = 100
+text = "WHIMSICAL PLAYGROUND"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 85.0
+offset_right = 1147.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.396078)
+theme_override_fonts/font = ExtResource("3_w2gqc")
+theme_override_font_sizes/font_size = 100
 text = "WHIMSICAL PLAYGROUND"
 
 [node name="Button" type="Button" parent="."]
@@ -120,6 +134,7 @@ offset_left = 121.0
 offset_top = 204.0
 offset_right = 631.0
 offset_bottom = 349.0
+theme_override_fonts/font = ExtResource("3_w2gqc")
 theme_override_font_sizes/font_size = 100
 text = "Play"
 
@@ -141,7 +156,18 @@ offset_top = 216.0
 offset_right = 1123.0
 offset_bottom = 258.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4nolo")
 theme_override_font_sizes/font_size = 30
 text = "<--- I recommend you press this."
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 599.0
+offset_right = 1131.0
+offset_bottom = 636.0
+theme_override_fonts/font = ExtResource("3_w2gqc")
+theme_override_font_sizes/font_size = 30
+text = "Fonts: Fjalla One, Pixelify Sans"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxmhevt5d0coh"]
+[gd_scene load_steps=24 format=3 uid="uid://bxmhevt5d0coh"]
 
 [ext_resource type="Texture2D" uid="uid://bcsmn6kwuksaf" path="res://Sprite-0007.png" id="1_34upw"]
 [ext_resource type="Script" path="res://slider_scene.gd" id="1_j2hoo"]
 [ext_resource type="PackedScene" uid="uid://w7nmo75ypcn7" path="res://sliderPlayer.tscn" id="2_ta1hw"]
 [ext_resource type="Texture2D" uid="uid://cflfwos1w8rpn" path="res://tilemap.png" id="4_4g2y3"]
 [ext_resource type="Texture2D" uid="uid://d06hk30shtvuu" path="res://happyface.png" id="5_jbs0m"]
+[ext_resource type="Texture2D" uid="uid://bmyhua0lm8ti7" path="res://HowToPlay.png" id="6_alyus"]
+[ext_resource type="FontFile" uid="uid://dnjsy7evce23" path="res://PixelifySans-VariableFont_wght.ttf" id="6_btan2"]
+[ext_resource type="FontFile" uid="uid://cejimc6ommoql" path="res://FjallaOne-Regular.ttf" id="7_gv0vl"]
 
 [sub_resource type="Animation" id="Animation_jkvx5"]
 length = 0.001
@@ -438,6 +441,57 @@ _data = {
 "RESET": SubResource("Animation_bttru")
 }
 
+[sub_resource type="Animation" id="Animation_woq8x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SliderPlayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -248)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HowToPlay:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_oe17m"]
 resource_name = "start"
 length = 2.0
@@ -465,38 +519,50 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, -248), Vector2(1, 2), Vector2(1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_woq8x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight2D:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [1.01]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SliderPlayer:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HowToPlay:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, -248)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v56kh"]
 _data = {
 "RESET": SubResource("Animation_woq8x"),
 "start": SubResource("Animation_oe17m")
+}
+
+[sub_resource type="Animation" id="Animation_3msss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HAHAHAA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(259, -42)]
 }
 
 [sub_resource type="Animation" id="Animation_rb4dv"]
@@ -514,21 +580,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(259, -42), Vector2(259, -42), Vector2(-9539, -42)]
-}
-
-[sub_resource type="Animation" id="Animation_3msss"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HAHAHAA:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(259, -42)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adu5r"]
@@ -597,16 +648,19 @@ offset_top = -120.0
 offset_right = 79.0
 offset_bottom = -97.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_btan2")
+theme_override_font_sizes/font_size = 16
 text = " Length: 30 seconds"
 
 [node name="note" type="Label" parent="."]
-offset_left = -82.0
-offset_top = -99.0
-offset_right = 331.0
-offset_bottom = -76.0
+offset_left = -134.0
+offset_top = -100.0
+offset_right = 279.0
+offset_bottom = -77.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = " If you get hit, the length increases"
+theme_override_fonts/font = ExtResource("6_btan2")
+theme_override_font_sizes/font_size = 11
+text = "If you get hit by projectiles, you'll have to play longer."
 
 [node name="Timer2" type="Timer" parent="."]
 autostart = true
@@ -621,8 +675,9 @@ autoplay = "start"
 offset_left = 259.0
 offset_top = -42.0
 offset_right = 9418.0
-offset_bottom = 27.0
+offset_bottom = 47.0
 theme_override_colors/font_color = Color(0, 0, 0, 0.313726)
+theme_override_fonts/font = ExtResource("7_gv0vl")
 theme_override_font_sizes/font_size = 50
 text = "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA"
 
@@ -631,6 +686,22 @@ libraries = {
 "": SubResource("AnimationLibrary_adu5r")
 }
 autoplay = "ha"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -137.0
+offset_top = -21.0
+offset_right = 150.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_btan2")
+text = "Press Left&Right Arrow Keys to move
+"
+
+[node name="HowToPlay" type="Sprite2D" parent="."]
+position = Vector2(0, 27)
+texture = ExtResource("6_alyus")
+region_enabled = true
+region_rect = Rect2(0, 31.7752, 128, 32.2248)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
