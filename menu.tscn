@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwuixsagjr0hu"]
+[gd_scene load_steps=10 format=3 uid="uid://bwuixsagjr0hu"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hi7ea"]
 [ext_resource type="Texture2D" uid="uid://bcsmn6kwuksaf" path="res://Sprite-0007.png" id="1_i4ts2"]
 [ext_resource type="Texture2D" uid="uid://dw0ppbtfu108d" path="res://sliderPlayer.png" id="2_i64du"]
 [ext_resource type="FontFile" uid="uid://dnjsy7evce23" path="res://PixelifySans-VariableFont_wght.ttf" id="3_w2gqc"]
 [ext_resource type="FontFile" uid="uid://cejimc6ommoql" path="res://FjallaOne-Regular.ttf" id="5_4nolo"]
+[ext_resource type="AudioStream" uid="uid://ctkwi1yqap3wr" path="res://Whimsical_Playground.mp3" id="6_diqul"]
 
 [sub_resource type="Animation" id="Animation_uap1i"]
 length = 0.001
@@ -169,5 +170,10 @@ offset_bottom = 636.0
 theme_override_fonts/font = ExtResource("3_w2gqc")
 theme_override_font_sizes/font_size = 30
 text = "Fonts: Fjalla One, Pixelify Sans"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_diqul")
+pitch_scale = 1.26
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

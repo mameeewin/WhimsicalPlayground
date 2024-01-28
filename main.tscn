@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cn1cs8m0kpxvy"]
+[gd_scene load_steps=52 format=3 uid="uid://cn1cs8m0kpxvy"]
 
 [ext_resource type="Texture2D" uid="uid://opatrl8n0eys" path="res://sky.png" id="1_h5pll"]
 [ext_resource type="PackedScene" uid="uid://b7cdclitjvrr6" path="res://player.tscn" id="1_h7hvd"]
@@ -19,13 +19,18 @@
 [ext_resource type="Script" path="res://SettingArea7.gd" id="12_05b6f"]
 [ext_resource type="PackedScene" uid="uid://ctmlcd64lkr7b" path="res://fake_slider.tscn" id="13_018q8"]
 [ext_resource type="PackedScene" uid="uid://wiyt2j4ghlnd" path="res://falling_block.tscn" id="15_5sr8m"]
+[ext_resource type="AudioStream" uid="uid://ctkwi1yqap3wr" path="res://Whimsical_Playground.mp3" id="16_0ndpv"]
 [ext_resource type="Texture2D" uid="uid://clx6i7fgwkkhs" path="res://flag.png" id="16_0y72e"]
+[ext_resource type="AudioStream" uid="uid://13gjvqftbs3h" path="res://The_end.mp3" id="17_h2uvo"]
 [ext_resource type="Texture2D" uid="uid://b7wj20r6081cb" path="res://medalofwalking.png" id="17_ipw2h"]
 [ext_resource type="Texture2D" uid="uid://cf2rjxhf1x7td" path="res://Player.png" id="19_ec78i"]
 [ext_resource type="FontFile" uid="uid://dnjsy7evce23" path="res://PixelifySans-VariableFont_wght.ttf" id="21_f2nuu"]
 [ext_resource type="PackedScene" uid="uid://8ac738e2yti1" path="res://rabbit.tscn" id="21_oi8ja"]
 [ext_resource type="Texture2D" uid="uid://bmyhua0lm8ti7" path="res://HowToPlay.png" id="22_bu1ly"]
 [ext_resource type="Texture2D" uid="uid://dpsv31ps2s8dv" path="res://rabbitarmor.png" id="26_atl8o"]
+[ext_resource type="AudioStream" uid="uid://dkinp37mqtwir" path="res://The_Gleeful.mp3" id="27_fmbe2"]
+[ext_resource type="AudioStream" uid="uid://5y10jon0hvrf" path="res://Secret_Base.mp3" id="30_p2ghm"]
+[ext_resource type="Script" path="res://RabbitArea.gd" id="30_ytmpi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43vky"]
 texture = ExtResource("2_i7alt")
@@ -576,6 +581,78 @@ tracks/27/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.96]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.937]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("AudioStreamPlayer:stream")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("27_fmbe2")]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("AudioStreamPlayer2:playing")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("AudioStreamPlayer:playing")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("RabbitAreaMusic:playing")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vsx75"]
 resource_name = "first"
@@ -607,6 +684,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0, 0.51]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.96, 0.79]
+}
 
 [sub_resource type="Animation" id="Animation_2vxqx"]
 resource_name = "settingarea2"
@@ -622,6 +711,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.79, 0.58]
 }
 
 [sub_resource type="Animation" id="Animation_ouuc1"]
@@ -735,6 +836,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [1.43, 0.0]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.58, 4.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.937, -80.0]
+}
 
 [sub_resource type="Animation" id="Animation_4ya47"]
 resource_name = "settingarea4"
@@ -774,6 +899,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_0ndpv")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3p4sl"]
@@ -955,6 +1104,42 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0, 0.0, 0.0, 6.28319]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.937, -80.0, 1.095]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AudioStreamPlayer:stream")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_0ndpv"), ExtResource("17_h2uvo"), ExtResource("30_p2ghm")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AudioStreamPlayer:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true]
+}
 
 [sub_resource type="Animation" id="Animation_7em54"]
 resource_name = "settingarea7"
@@ -1045,6 +1230,42 @@ tracks/6/keys = {
 "method": &"change_to_menu"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 12.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -80.0, 2.105]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:stream")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 12.3536),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("17_h2uvo"), ExtResource("30_p2ghm")]
+}
 
 [sub_resource type="Animation" id="Animation_ifo0s"]
 resource_name = "settingarea0"
@@ -1072,10 +1293,78 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.96, 0.96]
+}
+
+[sub_resource type="Animation" id="Animation_x2000"]
+resource_name = "RabbitAreaEnter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RabbitAreaMusic:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_07yoh"]
+resource_name = "RabbitAreaExit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RabbitAreaMusic:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ce77o"]
 _data = {
 "RESET": SubResource("Animation_06mc2"),
+"RabbitAreaEnter": SubResource("Animation_x2000"),
+"RabbitAreaExit": SubResource("Animation_07yoh"),
 "first": SubResource("Animation_vsx75"),
 "settingarea0": SubResource("Animation_ifo0s"),
 "settingarea1": SubResource("Animation_v8m73"),
@@ -1105,6 +1394,9 @@ initial_velocity_max = 1000.0
 gravity = Vector3(0, 98, 0)
 scale_min = 2.0
 scale_max = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8iea"]
+size = Vector2(246, 153.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w7ucc")
@@ -1757,6 +2049,26 @@ texture = ExtResource("7_ftx5c")
 texture_scale = 0.5
 metadata/_edit_lock_ = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_fmbe2")
+volume_db = 0.937
+pitch_scale = 0.96
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_0ndpv")
+
+[node name="RabbitAreaMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_p2ghm")
+
+[node name="RabbitArea" type="Area2D" parent="."]
+position = Vector2(-328, -1528)
+script = ExtResource("30_ytmpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RabbitArea"]
+position = Vector2(3, -0.25)
+shape = SubResource("RectangleShape2D_v8iea")
+
 [connection signal="area_entered" from="SettingArea0" to="SettingArea0" method="_on_area_entered"]
 [connection signal="body_entered" from="SettingArea0" to="SettingArea0" method="_on_body_entered"]
 [connection signal="area_entered" from="SettingArea1" to="SettingArea1" method="_on_area_entered"]
@@ -1767,6 +2079,9 @@ metadata/_edit_lock_ = true
 [connection signal="body_entered" from="SettingArea5" to="SettingArea5" method="_on_body_entered"]
 [connection signal="body_entered" from="SettingArea6" to="SettingArea6" method="_on_body_entered"]
 [connection signal="body_entered" from="SettingArea7" to="SettingArea7" method="_on_body_entered"]
+[connection signal="body_entered" from="RabbitArea" to="." method="_on_rabbit_area_body_entered"]
+[connection signal="body_entered" from="RabbitArea" to="RabbitArea" method="_on_body_entered"]
+[connection signal="body_exited" from="RabbitArea" to="RabbitArea" method="_on_body_exited"]
 
 [editable path="Rabbit6"]
 [editable path="Rabbit9"]

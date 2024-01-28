@@ -4,6 +4,7 @@ var happyface = preload("res://happyfaceattack.tscn")
 var big_smile = preload("res://BIGGERSMILE.png")
 var small_smile = preload("res://happyface.png")
 var slider_length = 30
+var anim_name = "HAPPY"
 
 func _on_timer_timeout():
 	if randi_range(0, 1) == 1:
@@ -11,9 +12,10 @@ func _on_timer_timeout():
 	else:
 		$Happyface.texture = small_smile
 	$Timer.wait_time -= 0.1
-	if $Timer.wait_time < 0.25:
-		$Timer.wait_time = 0.25
-	$AnimationPlayer2.play("HAPPY")
+	if $Timer.wait_time < 0.35:
+		anim_name = "HAPPY_2"
+		$Timer.wait_time = 0.35
+	$AnimationPlayer2.play(anim_name)
 	var happyface_node = happyface.instantiate()
 	happyface_node.position = Vector2(randf_range(-153, 153), 453)
 	happyface_node.connect("hit", hit)

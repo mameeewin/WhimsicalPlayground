@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bxmhevt5d0coh"]
+[gd_scene load_steps=26 format=3 uid="uid://bxmhevt5d0coh"]
 
 [ext_resource type="Texture2D" uid="uid://bcsmn6kwuksaf" path="res://Sprite-0007.png" id="1_34upw"]
 [ext_resource type="Script" path="res://slider_scene.gd" id="1_j2hoo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmyhua0lm8ti7" path="res://HowToPlay.png" id="6_alyus"]
 [ext_resource type="FontFile" uid="uid://dnjsy7evce23" path="res://PixelifySans-VariableFont_wght.ttf" id="6_btan2"]
 [ext_resource type="FontFile" uid="uid://cejimc6ommoql" path="res://FjallaOne-Regular.ttf" id="7_gv0vl"]
+[ext_resource type="AudioStream" uid="uid://6kxhs25xpb6a" path="res://Slider_Scene.mp3" id="9_e840n"]
 
 [sub_resource type="Animation" id="Animation_jkvx5"]
 length = 0.001
@@ -435,9 +436,62 @@ tracks/5/keys = {
 "values": [Color(1, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_vjjvo"]
+resource_name = "HAPPY_2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happyface:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Happyface:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 5), Vector2(7, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.75, 2.75), Vector2(2.5, 2.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RandomLights:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.51, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3x2nm"]
 _data = {
 "HAPPY": SubResource("Animation_m4tjh"),
+"HAPPY_2": SubResource("Animation_vjjvo"),
 "RESET": SubResource("Animation_bttru")
 }
 
@@ -638,6 +692,7 @@ energy = 1.01
 blend_mode = 1
 
 [node name="RandomLights" type="DirectionalLight2D" parent="."]
+position = Vector2(1, 0)
 color = Color(1, 0, 0, 1)
 energy = 0.0
 blend_mode = 2
@@ -702,6 +757,10 @@ position = Vector2(0, 27)
 texture = ExtResource("6_alyus")
 region_enabled = true
 region_rect = Rect2(0, 31.7752, 128, 32.2248)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_e840n")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

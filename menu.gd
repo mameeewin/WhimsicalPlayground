@@ -3,7 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Globals.player_position_spawn = Vector2(415, 122)
+	Globals.camera_zoom = Vector2(1.5, 1.5)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
